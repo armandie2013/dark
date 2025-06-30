@@ -25,6 +25,8 @@ const Cart = () => {
         </ul>        
       )}
       <div className="mt-4 font-semibold">Total: ${totalPrice}</div>
+
+      {/* boton eliminar todo */}
       <div>
         <ClearCartButton />
       </div>
