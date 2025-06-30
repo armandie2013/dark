@@ -1,4 +1,5 @@
 import { useCart } from "../context/CartContext";
+import ClearCartButton from "./ClearCartButton";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
@@ -17,14 +18,18 @@ const Cart = () => {
                 <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-2">-</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-2">+</button>
-                <button onClick={() => removeFromCart(item.id)} className="text-red-600">Eliminar</button>
+                <button onClick={() => removeFromCart(item.id)} className="text-red-600">Eliminar</button>                
               </div>
-            </li>
+            </li>            
           ))}
-        </ul>
+        </ul>        
       )}
       <div className="mt-4 font-semibold">Total: ${totalPrice}</div>
+      <div>
+        <ClearCartButton />
+      </div>
     </div>
+    
   );
 };
 
