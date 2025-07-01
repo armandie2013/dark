@@ -8,7 +8,7 @@ const Cart = () => {
     <div className="p-4 mt-8 bg-gray-100 rounded dark:bg-gray-800 text-black dark:text-white">
       <h2 className="text-xl font-bold mb-4">Carrito</h2>
       {cart.length === 0 ? (
-        <p>El carrito está vacío.</p>
+        <p>El carrito esta vacio.</p>
       ) : (
         <ul className="space-y-4">
           {cart.map((item) => (
@@ -24,7 +24,7 @@ const Cart = () => {
           ))}
         </ul>        
       )}
-      <div className="mt-4 font-semibold">Total: ${totalPrice}</div>
+      <div className="mt-4 font-semibold">Total a pagar: $ {totalPrice}</div>
 
       {/* boton eliminar todo */}
       <div>
