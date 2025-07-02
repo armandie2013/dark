@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import products from "../data/Products";
+
 
 export const CartContext = createContext();
 
