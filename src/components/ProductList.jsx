@@ -1,13 +1,9 @@
 import { useCart } from "../context/CartContext";
+import products from "../data/Products";
 
-const products = [
-  { id: 1, name: "Laptop", price: 1000 },
-  { id: 2, name: "Auriculares", price: 200 },
-  { id: 3, name: "Mouse", price: 50 }
-];
+const ProductList=()=>{
+  const{addToCart}=useCart();
 
-const ProductList = () => {
-  const { addToCart } = useCart();
 
   return (
     <div className="p-4">

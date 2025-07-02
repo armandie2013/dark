@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import products from "../data/Products";
 
 export const CartContext = createContext();
 
@@ -11,16 +12,14 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-
-  
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
         return prevCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+            ? { ...item, quantity: item.quantity + 1 } 
+          : item                                                             
         );
       }
       return [...prevCart, { ...product, quantity: 1 }];
@@ -39,9 +38,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  const clearCart=()=>{
+  
+  const clearCart = () => {
     setCart([]);
-  }
+  };
 
   const totalPrice = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -50,7 +50,14 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, totalPrice, clearCart }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        totalPrice,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
