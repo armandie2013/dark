@@ -1,13 +1,15 @@
 import { createContext, useState, useEffect, useContext } from "react";
 
-
+// creamos el contexto global para las cart y luego lo expotamos al final para poder usarlo
 export const CartContext = createContext();
+
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
 
+  
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -33,7 +35,9 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = (id, quantity) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
+        item.id === id ? { ...item,
+        quantity: Math.max(1, quantity)
+       } : item
       )
     );
   };
